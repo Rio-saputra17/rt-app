@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,38 +15,33 @@
 
 </head>
 
+
 <body>
 
-<div id="login">
+<header class="topbar">
 
 <h1>RT APP</h1>
+
+</header>
+
+
+
+<div id="loginPage">
+
+<div class="card">
+
+<h2>Login</h2>
 
 <button onclick="login('warga')">Login Warga</button>
 <button onclick="login('admin')">Login Admin</button>
 
 </div>
 
+</div>
+
+
 
 <div id="app" style="display:none">
-
-<header>
-<h2>Dashboard RT</h2>
-</header>
-
-
-<nav>
-
-<button onclick="openPage('dashboard')">Dashboard</button>
-<button onclick="openPage('warga')">Warga</button>
-<button onclick="openPage('iuran')">Iuran</button>
-<button onclick="openPage('kas')">Kas</button>
-<button onclick="logout()">Logout</button>
-
-</nav>
-
-
-
-<main>
 
 
 <section id="dashboard">
@@ -70,9 +66,9 @@
 
 
 
-<section id="warga" class="hide">
+<section id="warga" class="page hide">
 
-<div class="form-box">
+<div class="card">
 
 <h3>Tambah Warga</h3>
 
@@ -85,6 +81,7 @@
 </div>
 
 
+<div class="card">
 
 <h3>Daftar Warga</h3>
 
@@ -102,8 +99,106 @@
 
 </table>
 
+</div>
+
 </section>
 
 
 
-<section id="iuran"
+<section id="iuran" class="page hide">
+
+<div class="card">
+
+<h3>Input Pembayaran</h3>
+
+<input id="namaBayar" placeholder="Nama Warga">
+
+<select id="bulan">
+
+<option>Januari</option>
+<option>Februari</option>
+<option>Maret</option>
+<option>April</option>
+<option>Mei</option>
+<option>Juni</option>
+<option>Juli</option>
+<option>Agustus</option>
+<option>September</option>
+<option>Oktober</option>
+<option>November</option>
+<option>Desember</option>
+
+</select>
+
+<input id="jumlahBayar" placeholder="Jumlah Iuran">
+
+<button onclick="bayarIuran()">Simpan Pembayaran</button>
+
+</div>
+
+
+<div class="card">
+
+<h3>Status Iuran</h3>
+
+<table>
+
+<tr>
+<th>Nama</th>
+<th>Bulan</th>
+<th>Jumlah</th>
+</tr>
+
+<tbody id="tableIuran"></tbody>
+
+</table>
+
+</div>
+
+</section>
+
+
+
+<section id="kas" class="page hide">
+
+<div class="card">
+
+<h3>Kas RT</h3>
+
+<table>
+
+<tr>
+<th>Keterangan</th>
+<th>Masuk</th>
+<th>Keluar</th>
+</tr>
+
+<tbody id="tableKas"></tbody>
+
+</table>
+
+</div>
+
+</section>
+
+
+
+<nav class="bottomNav">
+
+<button onclick="openPage('dashboard')">🏠</button>
+<button onclick="openPage('warga')">👨‍👩‍👧</button>
+<button onclick="openPage('iuran')">💰</button>
+<button onclick="openPage('kas')">📊</button>
+<button onclick="logout()">🚪</button>
+
+</nav>
+
+
+</div>
+
+
+<script src="app.js"></script>
+
+</body>
+
+</html>
