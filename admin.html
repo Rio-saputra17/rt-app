@@ -6,20 +6,23 @@
 
 <title>Dashboard Admin</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
 <style>
 
 body{
-font-family:Arial;
+font-family:'Poppins',sans-serif;
 margin:0;
-background:#f4f6f9;
+background:#f2f5f9;
 }
 
 header{
-background:#007bff;
+background:linear-gradient(135deg,#4facfe,#00f2fe);
 color:white;
-padding:20px;
-text-align:center;
+padding:25px;
 font-size:22px;
+font-weight:600;
+text-align:center;
 }
 
 .menu{
@@ -29,47 +32,18 @@ gap:15px;
 padding:20px;
 }
 
-button{
+.card{
+background:white;
+border-radius:15px;
 padding:20px;
+text-align:center;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
 font-size:18px;
-border:none;
-border-radius:12px;
-color:white;
 }
 
-.warga{background:#6f42c1;}
-.iuran{background:#17a2b8;}
-.kas{background:#ff9800;}
-.bayar{background:#28a745;}
-.edit{background:#dc3545;}
-
-@media(max-width:600px){
-.menu{
-grid-template-columns:1fr;
-}
+.icon{
+font-size:35px;
+margin-bottom:10px;
 }
 
-</style>
-
-</head>
-
-<body>
-
-<header>DASHBOARD ADMIN</header>
-
-<div class="menu">
-
-<button class="warga">WARGA</button>
-
-<button class="iuran">IURAN BULANAN</button>
-
-<button class="kas">KAS RT</button>
-
-<button class="bayar">INPUT PEMBAYARAN</button>
-
-<button class="edit">TAMBAH / EDIT DATA</button>
-
-</div>
-
-</body>
-</html>
+.warga{color:#6f42c1
