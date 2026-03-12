@@ -1,0 +1,8 @@
+{
+"name":"RT APP",
+"short_name":"RTAPP",
+"display":"standalone",
+"start_url":"index.html",
+"background_color":"#0f172a",
+"theme_color":"#0f172a"
+}
