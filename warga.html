@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Dashboard Warga</title>
+
+</head>
+
+<body>
+
+<h2>DASHBOARD WARGA</h2>
+
+<button onclick="menu('warga')">WARGA</button>
+<button onclick="menu('iuran')">IURAN BULANAN</button>
+<button onclick="menu('kas')">KAS RT</button>
+
+<div id="konten"></div>
+
+<script>
+
+function menu(x){
+
+let konten=document.getElementById("konten")
+
+if(x=="warga"){
+
+konten.innerHTML="<h3>Data Warga</h3>"
+
+}
+
+if(x=="iuran"){
+
+konten.innerHTML="<h3>Iuran Bulanan</h3>"
+
+}
+
+if(x=="kas"){
+
+konten.innerHTML="<h3>Kas RT</h3>"
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
