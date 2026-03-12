@@ -6,24 +6,16 @@ const db = createClient(
 )
 
 
-
-// =====================
-// LOAD DATA WARGA
-// =====================
+// ======================
+// LOAD WARGA
+// ======================
 
 async function loadWarga(){
 
-let {data,error}=await db
+let {data}=await db
 .from("warga")
 .select("*")
 .order("alamat",{ascending:true})
-
-if(error){
-
-console.log(error)
-return
-
-}
 
 let html=""
 
@@ -32,11 +24,9 @@ data.forEach(w=>{
 html+=`
 
 <tr>
-
-<td>${w.nama||""}</td>
-<td>${w.alamat||""}</td>
-<td>${w.kontak||""}</td>
-
+<td>${w.nama}</td>
+<td>${w.alamat}</td>
+<td>${w.kontak}</td>
 </tr>
 
 `
@@ -49,9 +39,9 @@ document.getElementById("dataWarga").innerHTML=html
 
 
 
-// =====================
+// ======================
 // TAMBAH WARGA
-// =====================
+// ======================
 
 async function tambahWarga(){
 
@@ -59,21 +49,56 @@ let nama=document.getElementById("nama").value
 let alamat=document.getElementById("alamat").value
 let kontak=document.getElementById("kontak").value
 
-let {error}=await db
-.from("warga")
-.insert([{nama,alamat,kontak}])
+await db.from("warga").insert([{nama,alamat,kontak}])
 
-if(error){
-
-alert("gagal simpan")
-console.log(error)
-
-}else{
-
-alert("data tersimpan")
+alert("Data warga tersimpan")
 
 loadWarga()
 
 }
+
+
+
+// ======================
+// INPUT PEMBAYARAN IURAN
+// ======================
+
+async function bayarIuran(){
+
+let nama=document.getElementById("namaBayar").value
+let bulan=document.getElementById("bulan").value
+let jumlah=document.getElementById("jumlah").value
+
+let today=new Date().toISOString().split("T")[0]
+let tahun=new Date().getFullYear()
+
+await db.from("iuran").insert([
+
+{
+nama:nama,
+bulan:bulan,
+tahun:tahun,
+status:"Lunas",
+tanggal_bayar:today,
+jumlah:jumlah
+}
+
+])
+
+
+// otomatis masuk kas
+
+await db.from("kas").insert([
+
+{
+tanggal:today,
+keterangan:"Iuran "+nama+" "+bulan,
+masuk:jumlah,
+keluar:0
+}
+
+])
+
+alert("Pembayaran berhasil")
 
 }
