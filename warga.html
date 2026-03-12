@@ -2,17 +2,67 @@
 <html>
 <head>
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>Dashboard Warga</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+background:#f4f6f9;
+}
+
+header{
+background:#28a745;
+color:white;
+padding:20px;
+text-align:center;
+font-size:22px;
+}
+
+.menu{
+display:grid;
+grid-template-columns:1fr;
+gap:15px;
+padding:20px;
+}
+
+button{
+padding:20px;
+font-size:20px;
+border:none;
+border-radius:12px;
+color:white;
+}
+
+.warga{background:#007bff;}
+.iuran{background:#17a2b8;}
+.kas{background:#ff9800;}
+
+#konten{
+padding:20px;
+font-size:18px;
+}
+
+</style>
 
 </head>
 
 <body>
 
-<h2>DASHBOARD WARGA</h2>
+<header>DASHBOARD WARGA</header>
 
-<button onclick="menu('warga')">WARGA</button>
-<button onclick="menu('iuran')">IURAN BULANAN</button>
-<button onclick="menu('kas')">KAS RT</button>
+<div class="menu">
+
+<button class="warga" onclick="menu('warga')">DATA WARGA</button>
+
+<button class="iuran" onclick="menu('iuran')">IURAN BULANAN</button>
+
+<button class="kas" onclick="menu('kas')">KAS RT</button>
+
+</div>
 
 <div id="konten"></div>
 
@@ -20,24 +70,18 @@
 
 function menu(x){
 
-let konten=document.getElementById("konten")
+let k=document.getElementById("konten")
 
 if(x=="warga"){
-
-konten.innerHTML="<h3>Data Warga</h3>"
-
+k.innerHTML="<h3>Data Warga</h3>"
 }
 
 if(x=="iuran"){
-
-konten.innerHTML="<h3>Iuran Bulanan</h3>"
-
+k.innerHTML="<h3>Iuran Bulanan</h3>"
 }
 
 if(x=="kas"){
-
-konten.innerHTML="<h3>Kas RT</h3>"
-
+k.innerHTML="<h3>Kas RT</h3>"
 }
 
 }
