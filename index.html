@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Aplikasi RT</title>
+
+</head>
+
+<body>
+
+<h2>LOGIN APLIKASI RT</h2>
+
+<input type="password" id="password" placeholder="Masukkan Password">
+
+<br><br>
+
+<button onclick="loginWarga()">Login Warga</button>
+<button onclick="loginAdmin()">Login Admin</button>
+
+<p id="status"></p>
+
+<script>
+
+function loginWarga(){
+
+let pass=document.getElementById("password").value
+
+if(pass==="RT03"){
+
+window.location="warga.html"
+
+}else{
+
+document.getElementById("status").innerText="Password salah"
+
+}
+
+}
+
+function loginAdmin(){
+
+let pass=document.getElementById("password").value
+
+if(pass==="RTKU"){
+
+window.location="admin.html"
+
+}else{
+
+document.getElementById("status").innerText="Password salah"
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
