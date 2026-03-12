@@ -17,13 +17,13 @@ text-align:center;
 
 .logo{
 
-font-size:80px;
+font-size:70px;
 text-align:center;
 margin-top:20px;
 
 }
 
-.menuGrid{
+.menu{
 
 display:grid;
 
@@ -35,20 +35,23 @@ padding:20px;
 
 }
 
-.menuGrid button{
+.menu button{
 
 background:#1e293b;
+
 border:none;
+
 border-radius:15px;
 
 padding:30px;
 
 font-size:22px;
+
 color:white;
 
 }
 
-.menuGrid p{
+.menu p{
 
 margin-top:10px;
 font-size:14px;
@@ -58,8 +61,11 @@ font-size:14px;
 .card{
 
 background:#1e293b;
+
 margin:20px;
+
 padding:20px;
+
 border-radius:15px;
 
 }
@@ -67,10 +73,13 @@ border-radius:15px;
 input,select{
 
 width:100%;
+
 padding:14px;
+
 margin-top:10px;
 
 border:none;
+
 border-radius:10px;
 
 }
@@ -78,26 +87,30 @@ border-radius:10px;
 button{
 
 width:100%;
+
 padding:14px;
+
 margin-top:10px;
 
 border:none;
+
 border-radius:12px;
 
 background:#22c55e;
+
 color:white;
 
 }
 
-.backBtn{
-
-margin:20px;
+.back{
 
 background:#475569;
 
+margin:20px;
+
 }
 
-.hide{
+.page{
 
 display:none;
 
