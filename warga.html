@@ -2,17 +2,19 @@
 <html>
 
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <link rel="stylesheet" href="style.css">
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="app.js"></script>
 
 </head>
 
-<body onload="loadWarga();loadKas()">
+<body onload="loadWarga()">
 
-<div class="menu">
+<div class="container">
 
 <h2>Daftar Warga</h2>
 
@@ -21,34 +23,14 @@
 <table>
 
 <tr>
+
 <td>Nama</td>
 <td>Alamat</td>
 <td>Kontak</td>
+
 </tr>
 
 <tbody id="dataWarga"></tbody>
-
-</table>
-
-</div>
-
-<h2>Kas RT</h2>
-
-<div class="card">
-
-Saldo RT :
-<h3>Rp <span id="saldo">0</span></h3>
-
-<table>
-
-<tr>
-<td>Tanggal</td>
-<td>Keterangan</td>
-<td>Masuk</td>
-<td>Keluar</td>
-</tr>
-
-<tbody id="dataKas"></tbody>
 
 </table>
 
