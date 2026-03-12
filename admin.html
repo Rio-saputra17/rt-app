@@ -3,18 +3,18 @@
 
 <head>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" href="style.css">
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="app.js"></script>
 
 </head>
 
 <body onload="loadWarga()">
 
-<div class="menu">
+<div class="container">
 
 <h2>Tambah Warga</h2>
 
@@ -28,6 +28,7 @@
 
 </div>
 
+
 <h2>Daftar Warga</h2>
 
 <div class="card">
@@ -35,9 +36,11 @@
 <table>
 
 <tr>
+
 <td>Nama</td>
 <td>Alamat</td>
 <td>Kontak</td>
+
 </tr>
 
 <tbody id="dataWarga"></tbody>
