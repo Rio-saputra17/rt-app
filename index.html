@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>RT APP</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<div id="login">
+
+<h1>RT APP</h1>
+
+<button onclick="login('warga')">Login Warga</button>
+<button onclick="login('admin')">Login Admin</button>
+
+</div>
+
+
+<div id="app" style="display:none">
+
+<header>
+<h2>Dashboard RT</h2>
+</header>
+
+
+<nav>
+
+<button onclick="openPage('dashboard')">Dashboard</button>
+<button onclick="openPage('warga')">Warga</button>
+<button onclick="openPage('iuran')">Iuran</button>
+<button onclick="openPage('kas')">Kas</button>
+<button onclick="logout()">Logout</button>
+
+</nav>
+
+
+
+<main>
+
+
+<section id="dashboard">
+
+<div class="grid">
+
+<div class="card">
+<p>Total Warga</p>
+<h2 id="statWarga">0</h2>
+</div>
+
+<div class="card">
+<p>Saldo Kas</p>
+<h2 id="statKas">0</h2>
+</div>
+
+</div>
+
+<canvas id="chartKas"></canvas>
+
+</section>
+
+
+
+<section id="warga" class="hide">
+
+<div class="form-box">
+
+<h3>Tambah Warga</h3>
+
+<input id="namaWarga" placeholder="Nama Warga">
+<input id="alamatWarga" placeholder="Alamat">
+<input id="kontakWarga" placeholder="Kontak">
+
+<button onclick="tambahWarga()">Simpan</button>
+
+</div>
+
+
+
+<h3>Daftar Warga</h3>
+
+<input id="searchWarga" placeholder="Cari warga..." onkeyup="searchWarga()">
+
+<table>
+
+<tr>
+<th>Nama</th>
+<th>Alamat</th>
+<th>Kontak</th>
+</tr>
+
+<tbody id="tableWarga"></tbody>
+
+</table>
+
+</section>
+
+
+
+<section id="iuran"
