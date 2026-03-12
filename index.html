@@ -1,50 +1,168 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Aplikasi RT</title>
+
+<title>RT APP</title>
+
 <link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 
 <body>
 
-<div class="login">
+<div id="login">
 
-<h2>Aplikasi RT</h2>
+<h1>RT APP</h1>
 
-<input type="password" id="pass" placeholder="Password">
-
-<button onclick="login()">Login</button>
+<button onclick="login('warga')">Login Warga</button>
+<button onclick="login('admin')">Login Admin</button>
 
 </div>
 
-<script>
 
-function login(){
+<div id="app" style="display:none">
 
-let p=document.getElementById("pass").value
+<header>
 
-if(p=="RT03"){
+<h2>Dashboard RT</h2>
 
-location="warga.html"
+</header>
 
-}
 
-else if(p=="RTKU"){
+<nav>
 
-location="admin.html"
+<button onclick="openPage('dashboard')">Dashboard</button>
+<button onclick="openPage('warga')">Warga</button>
+<button onclick="openPage('iuran')">Iuran</button>
+<button onclick="openPage('bayar')">Bayar</button>
+<button onclick="openPage('kas')">Kas</button>
+<button onclick="logout()">Logout</button>
 
-}
+</nav>
 
-else{
 
-alert("Password salah")
 
-}
+<main>
 
-}
 
-</script>
+<section id="dashboard">
+
+<div class="grid">
+
+<div class="card">
+<p>Total Warga</p>
+<h2 id="statWarga">0</h2>
+</div>
+
+<div class="card">
+<p>Saldo Kas</p>
+<h2 id="statKas">0</h2>
+</div>
+
+</div>
+
+<canvas id="chartKas"></canvas>
+
+</section>
+
+
+
+<section id="warga" class="hide">
+
+<h3>Data Warga</h3>
+
+<input id="searchWarga" placeholder="Cari warga..." onkeyup="searchWarga()">
+
+<table>
+
+<tr>
+<th>Nama</th>
+<th>Alamat</th>
+<th>Kontak</th>
+</tr>
+
+<tbody id="tableWarga"></tbody>
+
+</table>
+
+<div id="formTambah" class="hide">
+
+<h3>Tambah Warga</h3>
+
+<input id="namaWarga" placeholder="Nama">
+<input id="alamatWarga" placeholder="Alamat">
+<input id="kontakWarga" placeholder="Kontak">
+
+<button onclick="tambahWarga()">Tambah</button>
+
+</div>
+
+</section>
+
+
+
+<section id="iuran" class="hide">
+
+<h3>Status Iuran</h3>
+
+<table>
+
+<tr>
+<th>Nama</th>
+<th>Status</th>
+</tr>
+
+<tbody id="tableIuran"></tbody>
+
+</table>
+
+</section>
+
+
+
+<section id="bayar" class="hide">
+
+<h3>Input Pembayaran</h3>
+
+<input id="namaBayar" placeholder="Nama warga">
+<input id="jumlahBayar" placeholder="Jumlah">
+
+<button onclick="bayarIuran()">Simpan</button>
+
+</section>
+
+
+
+<section id="kas" class="hide">
+
+<h3>Kas RT</h3>
+
+<table>
+
+<tr>
+<th>Keterangan</th>
+<th>Masuk</th>
+<th>Keluar</th>
+</tr>
+
+<tbody id="tableKas"></tbody>
+
+</table>
+
+</section>
+
+
+</main>
+
+</div>
+
+<script src="app.js"></script>
 
 </body>
 </html>
