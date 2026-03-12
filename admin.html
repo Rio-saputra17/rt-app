@@ -2,19 +2,74 @@
 <html>
 <head>
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>Dashboard Admin</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+background:#f4f6f9;
+}
+
+header{
+background:#007bff;
+color:white;
+padding:20px;
+text-align:center;
+font-size:22px;
+}
+
+.menu{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+padding:20px;
+}
+
+button{
+padding:20px;
+font-size:18px;
+border:none;
+border-radius:12px;
+color:white;
+}
+
+.warga{background:#6f42c1;}
+.iuran{background:#17a2b8;}
+.kas{background:#ff9800;}
+.bayar{background:#28a745;}
+.edit{background:#dc3545;}
+
+@media(max-width:600px){
+.menu{
+grid-template-columns:1fr;
+}
+}
+
+</style>
 
 </head>
 
 <body>
 
-<h2>DASHBOARD ADMIN</h2>
+<header>DASHBOARD ADMIN</header>
 
-<button>WARGA</button>
-<button>IURAN BULANAN</button>
-<button>KAS RT</button>
-<button>INPUT PEMBAYARAN</button>
-<button>TAMBAH / EDIT DATA</button>
+<div class="menu">
+
+<button class="warga">WARGA</button>
+
+<button class="iuran">IURAN BULANAN</button>
+
+<button class="kas">KAS RT</button>
+
+<button class="bayar">INPUT PEMBAYARAN</button>
+
+<button class="edit">TAMBAH / EDIT DATA</button>
+
+</div>
 
 </body>
 </html>
