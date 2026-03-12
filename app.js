@@ -2,24 +2,18 @@ const { createClient } = supabase
 
 const db=createClient(
 "https://ocjspifnqtlevnupqmye.supabase.co",
-"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9janNwaWZucXRsZXZudXBxbXllIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMyNDk4MDgsImV4cCI6MjA4ODgyNTgwOH0.PbtGLNW1XuqU7N-tvbdW23To5XH9wG0LPF1mF-A9B8Q"
+"YOUR_SUPABASE_KEY"
 )
 
 let wargaData=[]
 
 function login(role){
 
-let pass=prompt("Masukkan password")
+let pass=prompt("Password")
 
-if(role==="warga" && pass==="RT03"){
+if(pass==="RTKU"){
 startApp()
-}
-
-else if(role==="admin" && pass==="RTKU"){
-startApp()
-}
-
-else{
+}else{
 alert("Password salah")
 }
 
@@ -31,7 +25,7 @@ location.reload()
 
 function startApp(){
 
-document.getElementById("login").style.display="none"
+document.getElementById("loginPage").style.display="none"
 document.getElementById("app").style.display="block"
 
 loadDashboard()
@@ -43,13 +37,27 @@ loadIuran()
 
 function openPage(id){
 
-document.querySelectorAll("section").forEach(s=>s.classList.add("hide"))
+document.querySelectorAll(".page").forEach(p=>p.classList.add("hide"))
 
+if(id==="dashboard"){
+document.getElementById("dashboard").classList.remove("hide")
+}else{
 document.getElementById(id).classList.remove("hide")
+}
 
 }
 
+async function tambahWarga(){
 
+let nama=document.getElementById("namaWarga").value
+let alamat=document.getElementById("alamatWarga").value
+let kontak=document.getElementById("kontakWarga").value
+
+await db.from("warga").insert([{nama,alamat,kontak}])
+
+loadWarga()
+
+}
 
 async function loadWarga(){
 
@@ -75,8 +83,6 @@ document.getElementById("tableWarga").innerHTML=html
 
 }
 
-
-
 function searchWarga(){
 
 let key=document.getElementById("searchWarga").value.toLowerCase()
@@ -101,23 +107,6 @@ document.getElementById("tableWarga").innerHTML=html
 
 }
 
-
-
-async function tambahWarga(){
-
-let nama=document.getElementById("namaWarga").value
-let alamat=document.getElementById("alamatWarga").value
-let kontak=document.getElementById("kontakWarga").value
-
-await db.from("warga").insert([{nama,alamat,kontak}])
-
-loadWarga()
-loadDashboard()
-
-}
-
-
-
 async function bayarIuran(){
 
 let nama=document.getElementById("namaBayar").value
@@ -132,13 +121,10 @@ masuk:jumlah,
 keluar:0
 }])
 
-loadKas()
 loadIuran()
-loadDashboard()
+loadKas()
 
 }
-
-
 
 async function loadIuran(){
 
@@ -162,8 +148,6 @@ document.getElementById("tableIuran").innerHTML=html
 
 }
 
-
-
 async function loadKas(){
 
 let {data}=await db.from("kas").select("*")
@@ -186,8 +170,6 @@ document.getElementById("tableKas").innerHTML=html
 
 }
 
-
-
 async function loadDashboard(){
 
 let {data:warga}=await db.from("warga").select("*")
@@ -195,15 +177,11 @@ let {data:kas}=await db.from("kas").select("*")
 
 document.getElementById("statWarga").innerText=warga.length
 
-let masuk=0
-let keluar=0
+let saldo=0
 
 kas.forEach(k=>{
-masuk+=k.masuk||0
-keluar+=k.keluar||0
+saldo+= (k.masuk||0)-(k.keluar||0)
 })
-
-let saldo=masuk-keluar
 
 document.getElementById("statKas").innerText="Rp "+saldo
 
