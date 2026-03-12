@@ -1,34 +1,67 @@
 body{
+
 margin:0;
 font-family:Arial;
 background:#0f172a;
 color:white;
-padding-bottom:80px;
+
 }
 
-.topbar{
+header{
+
 background:#020617;
 padding:15px;
 text-align:center;
+
 }
 
-h1,h2,h3{
-margin:10px 0;
+.logo{
+
+font-size:80px;
+text-align:center;
+margin-top:20px;
+
+}
+
+.menuGrid{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:15px;
+
+padding:20px;
+
+}
+
+.menuGrid button{
+
+background:#1e293b;
+border:none;
+border-radius:15px;
+
+padding:30px;
+
+font-size:22px;
+color:white;
+
+}
+
+.menuGrid p{
+
+margin-top:10px;
+font-size:14px;
+
 }
 
 .card{
-background:#1e293b;
-padding:20px;
-border-radius:16px;
-margin:15px;
-box-shadow:0 4px 10px rgba(0,0,0,0.3);
-}
 
-.grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:10px;
-margin:15px;
+background:#1e293b;
+margin:20px;
+padding:20px;
+border-radius:15px;
+
 }
 
 input,select{
@@ -37,10 +70,8 @@ width:100%;
 padding:14px;
 margin-top:10px;
 
-border-radius:10px;
 border:none;
-
-font-size:16px;
+border-radius:10px;
 
 }
 
@@ -48,50 +79,26 @@ button{
 
 width:100%;
 padding:14px;
-margin-top:12px;
+margin-top:10px;
 
 border:none;
 border-radius:12px;
 
 background:#22c55e;
 color:white;
-font-size:16px;
 
 }
 
-table{
-width:100%;
-margin-top:15px;
-border-collapse:collapse;
-}
+.backBtn{
 
-td,th{
-padding:12px;
-border-bottom:1px solid #334155;
-text-align:left;
-}
+margin:20px;
 
-.bottomNav{
-
-position:fixed;
-bottom:0;
-
-width:100%;
-
-display:flex;
-
-background:#020617;
-
-}
-
-.bottomNav button{
-
-flex:1;
-background:none;
-font-size:22px;
+background:#475569;
 
 }
 
 .hide{
+
 display:none;
+
 }
