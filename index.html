@@ -30,7 +30,7 @@
 
 <h2>Dashboard RT</h2>
 
-<div class="menuGrid">
+<div class="menu">
 
 <button onclick="openPage('warga')">
 👨‍👩‍👧
@@ -55,21 +55,21 @@
 
 <!-- WARGA -->
 
-<section id="warga" class="hide">
+<section id="warga" class="page">
 
 <h2>Data Warga</h2>
 
 <div class="card">
 
-<input id="namaWarga" placeholder="Nama">
-<input id="alamatWarga" placeholder="Alamat">
-<input id="kontakWarga" placeholder="Kontak">
+<input placeholder="Nama">
+<input placeholder="Alamat">
+<input placeholder="Kontak">
 
 <button>Simpan</button>
 
 </div>
 
-<button onclick="openPage('dashboard')" class="backBtn">
+<button class="back" onclick="openPage('dashboard')">
 ⬅ Kembali
 </button>
 
@@ -79,9 +79,9 @@
 
 <!-- IURAN -->
 
-<section id="iuran" class="hide">
+<section id="iuran" class="page">
 
-<h2>Input Iuran</h2>
+<h2>Input Pembayaran</h2>
 
 <div class="card">
 
@@ -110,7 +110,7 @@
 
 </div>
 
-<button onclick="openPage('dashboard')" class="backBtn">
+<button class="back" onclick="openPage('dashboard')">
 ⬅ Kembali
 </button>
 
@@ -120,17 +120,17 @@
 
 <!-- KAS -->
 
-<section id="kas" class="hide">
+<section id="kas" class="page">
 
 <h2>Kas RT</h2>
 
 <div class="card">
 
-<p>Data kas masuk dan keluar nanti tampil di sini</p>
+<p>Data kas akan muncul di sini</p>
 
 </div>
 
-<button onclick="openPage('dashboard')" class="backBtn">
+<button class="back" onclick="openPage('dashboard')">
 ⬅ Kembali
 </button>
 
