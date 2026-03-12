@@ -8,112 +8,86 @@
 <title>RT APP</title>
 
 <link rel="stylesheet" href="style.css">
-<link rel="manifest" href="manifest.json">
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 
-
 <body>
 
-<header class="topbar">
+<header>
 
 <h1>RT APP</h1>
 
 </header>
 
 
-
-<div id="loginPage">
-
-<div class="card">
-
-<h2>Login</h2>
-
-<button onclick="login('warga')">Login Warga</button>
-<button onclick="login('admin')">Login Admin</button>
-
-</div>
-
-</div>
-
-
-
-<div id="app" style="display:none">
-
+<!-- DASHBOARD -->
 
 <section id="dashboard">
 
-<div class="grid">
-
-<div class="card">
-<p>Total Warga</p>
-<h2 id="statWarga">0</h2>
+<div class="logo">
+🏘️
 </div>
 
-<div class="card">
-<p>Saldo Kas</p>
-<h2 id="statKas">0</h2>
-</div>
+<h2>Dashboard RT</h2>
+
+<div class="menuGrid">
+
+<button onclick="openPage('warga')">
+👨‍👩‍👧
+<p>Data Warga</p>
+</button>
+
+<button onclick="openPage('iuran')">
+💰
+<p>Input Iuran</p>
+</button>
+
+<button onclick="openPage('kas')">
+📊
+<p>Kas RT</p>
+</button>
 
 </div>
-
-<canvas id="chartKas"></canvas>
 
 </section>
 
 
 
-<section id="warga" class="page hide">
+<!-- WARGA -->
+
+<section id="warga" class="hide">
+
+<h2>Data Warga</h2>
 
 <div class="card">
 
-<h3>Tambah Warga</h3>
-
-<input id="namaWarga" placeholder="Nama Warga">
+<input id="namaWarga" placeholder="Nama">
 <input id="alamatWarga" placeholder="Alamat">
 <input id="kontakWarga" placeholder="Kontak">
 
-<button onclick="tambahWarga()">Simpan</button>
+<button>Simpan</button>
 
 </div>
 
-
-<div class="card">
-
-<h3>Daftar Warga</h3>
-
-<input id="searchWarga" placeholder="Cari warga..." onkeyup="searchWarga()">
-
-<table>
-
-<tr>
-<th>Nama</th>
-<th>Alamat</th>
-<th>Kontak</th>
-</tr>
-
-<tbody id="tableWarga"></tbody>
-
-</table>
-
-</div>
+<button onclick="openPage('dashboard')" class="backBtn">
+⬅ Kembali
+</button>
 
 </section>
 
 
 
-<section id="iuran" class="page hide">
+<!-- IURAN -->
+
+<section id="iuran" class="hide">
+
+<h2>Input Iuran</h2>
 
 <div class="card">
 
-<h3>Input Pembayaran</h3>
+<input placeholder="Nama Warga">
 
-<input id="namaBayar" placeholder="Nama Warga">
-
-<select id="bulan">
+<select>
 
 <option>Januari</option>
 <option>Februari</option>
@@ -130,75 +104,41 @@
 
 </select>
 
-<input id="jumlahBayar" placeholder="Jumlah Iuran">
+<input placeholder="Jumlah Iuran">
 
-<button onclick="bayarIuran()">Simpan Pembayaran</button>
-
-</div>
-
-
-<div class="card">
-
-<h3>Status Iuran</h3>
-
-<table>
-
-<tr>
-<th>Nama</th>
-<th>Bulan</th>
-<th>Jumlah</th>
-</tr>
-
-<tbody id="tableIuran"></tbody>
-
-</table>
+<button>Simpan Pembayaran</button>
 
 </div>
+
+<button onclick="openPage('dashboard')" class="backBtn">
+⬅ Kembali
+</button>
 
 </section>
 
 
 
-<section id="kas" class="page hide">
+<!-- KAS -->
+
+<section id="kas" class="hide">
+
+<h2>Kas RT</h2>
 
 <div class="card">
 
-<h3>Kas RT</h3>
-
-<table>
-
-<tr>
-<th>Keterangan</th>
-<th>Masuk</th>
-<th>Keluar</th>
-</tr>
-
-<tbody id="tableKas"></tbody>
-
-</table>
+<p>Data kas masuk dan keluar nanti tampil di sini</p>
 
 </div>
+
+<button onclick="openPage('dashboard')" class="backBtn">
+⬅ Kembali
+</button>
 
 </section>
 
-
-
-<nav class="bottomNav">
-
-<button onclick="openPage('dashboard')">🏠</button>
-<button onclick="openPage('warga')">👨‍👩‍👧</button>
-<button onclick="openPage('iuran')">💰</button>
-<button onclick="openPage('kas')">📊</button>
-<button onclick="logout()">🚪</button>
-
-</nav>
-
-
-</div>
 
 
 <script src="app.js"></script>
 
 </body>
-
 </html>
