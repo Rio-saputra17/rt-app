@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kas RT</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aplikasi RT</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="login-box">
+<div class="login">
 
-<h2>Login Aplikasi RT</h2>
+<h2>Aplikasi RT</h2>
 
-<input type="password" id="password" placeholder="Masukkan Password">
+<input type="password" id="pass" placeholder="Password">
 
 <button onclick="login()">Login</button>
 
@@ -22,17 +22,17 @@
 
 function login(){
 
-let pass=document.getElementById("password").value
+let p=document.getElementById("pass").value
 
-if(pass=="RT03"){
+if(p=="RT03"){
 
-window.location="warga.html"
+location="warga.html"
 
 }
 
-else if(pass=="RTKU"){
+else if(p=="RTKU"){
 
-window.location="admin.html"
+location="admin.html"
 
 }
 
